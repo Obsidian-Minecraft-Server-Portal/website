@@ -1,6 +1,5 @@
-import {Button, Card, CardBody, CardHeader, Divider, Link} from "@heroui/react";
+import {Button, Card, CardBody, CardFooter, CardHeader, Code, Divider, Link} from "@heroui/react";
 import {Icon} from "@iconify-icon/react";
-import {motion} from "framer-motion";
 
 interface DownloadOption
 {
@@ -16,76 +15,43 @@ export default function DownloadSection()
     const downloadOptions: DownloadOption[] = [
         {
             platform: "Windows",
-            icon: "pixelarticons:windows",
+            icon: "mage:microsoft-windows",
             description: "Easy installer for Windows 10/11",
             downloadUrl: "https://github.com/Obsidian-Minecraft-Server-Portal/obsidian-server-panel/releases/latest/download/obsidian-server-panel-windows.exe",
             command: "Download and run the installer"
         },
         {
-            platform: "macOS",
-            icon: "pixelarticons:apple",
+            platform: "Mac-OS",
+            icon: "ic:sharp-apple",
             description: "Universal binary for Intel and Apple Silicon",
             downloadUrl: "https://github.com/Obsidian-Minecraft-Server-Portal/obsidian-server-panel/releases/latest/download/obsidian-server-panel-macos.dmg",
             command: "Download and install from DMG"
         },
         {
             platform: "Linux",
-            icon: "pixelarticons:linux",
+            icon: "fluent-mdl2:linux-logo-32",
             description: "Automated installation script",
             downloadUrl: "#",
             command: "curl -sSL https://raw.githubusercontent.com/Obsidian-Minecraft-Server-Portal/obsidian-server-panel/main/install-obsidian.sh | sudo bash"
         }
     ];
 
-    const containerVariants = {
-        hidden: {opacity: 0},
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.1
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: {opacity: 0, y: 20},
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {duration: 0.5, ease: [0.4, 0.0, 0.2, 1] as any}
-        }
-    };
-
     return (
         <section id="download" className="py-16 px-8 bg-content1/30">
             <div className="max-w-6xl mx-auto">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{once: true, amount: 0.2}}
-                    variants={{
-                        hidden: {opacity: 0, y: 20},
-                        visible: {opacity: 1, y: 0, transition: {duration: 0.6}}
-                    }}
-                    className="text-center mb-12"
-                >
+                {/* Header (removed motion div) */}
+                <div className="text-center mb-12">
                     <h2 className="font-minecraft-header text-4xl text-primary mb-4">Download & Install</h2>
                     <p className="font-minecraft-body text-lg text-foreground/80 max-w-2xl mx-auto">
                         Get started with Obsidian Server Panel on your preferred platform
                     </p>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{once: true, amount: 0.1}}
-                    variants={containerVariants}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
-                >
+                {/* Cards grid (removed stagger animation) */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {downloadOptions.map((option, index) => (
-                        <motion.div key={index} variants={itemVariants}>
-                            <Card radius="none" className="font-minecraft-body h-full">
+                        <div key={index}>
+                            <Card radius="none" className="font-minecraft-body h-[200px]">
                                 <CardHeader className="pb-2">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 bg-primary/20 rounded-none flex items-center justify-center">
@@ -100,22 +66,26 @@ export default function DownloadSection()
                                 </CardHeader>
                                 <CardBody className="pt-2">
                                     <p className="text-foreground/80 mb-4">{option.description}</p>
-
+                                </CardBody>
+                                <CardFooter>
                                     {option.platform === "Linux" ? (
-                                        <div className="space-y-4">
-                                            <div className="bg-content2 p-3 rounded-none">
-                                                <code className="text-sm font-mono text-primary break-all">
-                                                    {option.command}
-                                                </code>
-                                            </div>
-                                            <Button
-                                                color="primary"
-                                                radius="none"
-                                                className="w-full font-minecraft-body"
-                                                onPress={() => navigator.clipboard.writeText(option.command)}
-                                                startContent={<Icon icon="pixelarticons:copy" width={16}/>}
+                                        <div className="flex flex-row items-center gap-1 w-full">
+                                            <Code
+                                                className="w-[100%] overflow-x-scroll cursor-pointer"
+                                                color={"primary"}
+                                                radius={"none"}
+                                                onClick={() => navigator.clipboard.writeText(option.command)}
+                                                size={"md"}
                                             >
-                                                Copy Command
+                                                {option.command}
+                                            </Code>
+                                            <Button
+                                                radius="none"
+                                                onPress={() => navigator.clipboard.writeText(option.command)}
+                                                isIconOnly
+                                                size={"sm"}
+                                            >
+                                                <Icon icon="pixelarticons:copy" width={16}/>
                                             </Button>
                                         </div>
                                     ) : (
@@ -129,22 +99,14 @@ export default function DownloadSection()
                                             Download for {option.platform}
                                         </Button>
                                     )}
-                                </CardBody>
+                                </CardFooter>
                             </Card>
-                        </motion.div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{once: true, amount: 0.2}}
-                    variants={{
-                        hidden: {opacity: 0, y: 20},
-                        visible: {opacity: 1, y: 0, transition: {duration: 0.6, delay: 0.3}}
-                    }}
-                    className="mt-12 text-center"
-                >
+                {/* Footer meta (removed motion) */}
+                <div className="mt-12 text-center">
                     <Divider className="mb-6"/>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-foreground/60">
                         <div className="flex items-center gap-2">
@@ -172,7 +134,7 @@ export default function DownloadSection()
                             </Link>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

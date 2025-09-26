@@ -1,25 +1,12 @@
 import {Button} from "@heroui/react";
 import {Icon} from "@iconify-icon/react";
-import {motion} from "framer-motion";
 
 export default function CTASection()
 {
     return (
         <section className="py-16 px-8 bg-gradient-to-r from-primary/10 to-primary/5">
             <div className="max-w-4xl mx-auto text-center">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{once: true, amount: 0.3}}
-                    variants={{
-                        hidden: {opacity: 0, y: 30},
-                        visible: {
-                            opacity: 1,
-                            y: 0,
-                            transition: {duration: 0.6, ease: [0.4, 0.0, 0.2, 1] as any}
-                        }
-                    }}
-                >
+                <div>
                     <h2 className="font-minecraft-header text-3xl text-primary mb-4">Ready to Get Started?</h2>
                     <p className="font-minecraft-body text-lg text-foreground/80 mb-8">
                         Join the community of server administrators already using Obsidian Server Panel
@@ -46,7 +33,7 @@ export default function CTASection()
                             Join Community
                         </Button>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

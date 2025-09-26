@@ -7,52 +7,35 @@ export default function HeroSection()
 
     return (
         <motion.section
-            initial={{opacity: 0, y: 20}}
+            id={"hero"}
+            initial={false}
             animate={{opacity: 1, y: 0}}
-            transition={{duration: 0.6}}
+            transition={{duration: 0}}
             className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 py-20 px-8"
         >
             <div className="max-w-6xl mx-auto text-center">
-                <motion.div
-                    initial={{opacity: 0, y: 30}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6, delay: 0.2}}
-                >
+                <div>
                     <Chip
                         color="primary"
                         variant="flat"
                         className="font-minecraft-body mb-6"
-                        startContent={<Icon icon="pixelarticons:star" width={16}/>}
-                    >
+                        startContent={<Icon icon="pixelarticons:star" width={16}/>}>
                         Modern Minecraft Server Management
                     </Chip>
-                </motion.div>
+                </div>
 
-                <motion.h1
-                    initial={{opacity: 0, y: 30}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6, delay: 0.3}}
-                    className="font-minecraft-header text-5xl md:text-7xl text-primary mb-6 leading-tight"
-                >
+                <h1
+                    className="font-minecraft-header text-5xl md:text-7xl text-primary mb-6 leading-tight">
                     Obsidian Server Panel
-                </motion.h1>
+                </h1>
 
-                <motion.p
-                    initial={{opacity: 0, y: 30}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6, delay: 0.4}}
-                    className="font-minecraft-body text-xl md:text-2xl text-foreground/80 mb-8 max-w-4xl mx-auto"
-                >
+                <p
+                    className="font-minecraft-body text-xl text-foreground/80 mb-8 max-w-4xl mx-auto">
                     A modern web-based management panel for Minecraft servers with modloader support,
                     featuring a responsive React frontend and a powerful Rust backend.
-                </motion.p>
+                </p>
 
-                <motion.div
-                    initial={{opacity: 0, y: 30}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6, delay: 0.5}}
-                    className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                >
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <Button
                         size="lg"
                         color="primary"
@@ -73,14 +56,9 @@ export default function HeroSection()
                     >
                         View on GitHub
                     </Button>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial={{opacity: 0, y: 30}}
-                    animate={{opacity: 1, y: 0}}
-                    transition={{duration: 0.6, delay: 0.6}}
-                    className="flex justify-center items-center gap-6 mt-8 text-sm text-foreground/60"
-                >
+                <div className="flex justify-center items-center gap-6 mt-8 text-sm text-foreground/60">
                     <div className="flex items-center gap-2">
                         <Icon icon="pixelarticons:check" width={16} className="text-success"/>
                         <span className="font-minecraft-body">Cross-Platform</span>
@@ -93,7 +71,7 @@ export default function HeroSection()
                         <Icon icon="pixelarticons:check" width={16} className="text-success"/>
                         <span className="font-minecraft-body">Docker Ready</span>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </motion.section>
     );

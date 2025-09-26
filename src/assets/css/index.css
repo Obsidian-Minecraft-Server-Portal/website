@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('minecraft-font.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --scrollbar-background-color: transparent;
+    --scrollbar-thumb-color: hsl(var(--heroui-primary));
+    --scrollbar-thumb-hover-color: hsl(var(--heroui-primary));
+    overflow: auto;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-background-color);
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
+}
+
+body {
+    font-family: 'MinecraftBody', sans-serif;
+}
+
+/* Custom font classes for the Minecraft theme */
+.font-minecraft-header {
+    font-family: 'MinecraftHeader', 'Minecraft-Seven_v2', monospace;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+}
+
+.font-minecraft-body {
+    font-family: 'MinecraftBody', 'Minecraft-Tenv2', 'Noto Sans', sans-serif;
+    font-weight: 400;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover-color);
+}
+
+::selection {
+    background-color: hsl(var(--heroui-primary));
+    color: hsl(var(--heroui-background));
+}

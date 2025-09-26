@@ -7,18 +7,16 @@ export default function HeroSection()
 
     return (
         <motion.section
-            initial={{opacity: 1, y: 20}}
-            whileInView={{opacity: 1, y: 0}}
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
             transition={{duration: 0.6}}
-            viewport={{once: true, amount: 0.3}} // only animate once, trigger when 30% visible
             className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 py-20 px-8"
         >
             <div className="max-w-6xl mx-auto text-center">
                 <motion.div
                     initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
+                    animate={{opacity: 1, y: 0}}
                     transition={{duration: 0.6, delay: 0.2}}
-                    viewport={{once: true, amount: 0.3}}
                 >
                     <Chip
                         color="primary"
@@ -32,9 +30,8 @@ export default function HeroSection()
 
                 <motion.h1
                     initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
+                    animate={{opacity: 1, y: 0}}
                     transition={{duration: 0.6, delay: 0.3}}
-                    viewport={{once: true, amount: 0.3}}
                     className="font-minecraft-header text-5xl md:text-7xl text-primary mb-6 leading-tight"
                 >
                     Obsidian Server Panel
@@ -42,9 +39,8 @@ export default function HeroSection()
 
                 <motion.p
                     initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
+                    animate={{opacity: 1, y: 0}}
                     transition={{duration: 0.6, delay: 0.4}}
-                    viewport={{once: true, amount: 0.3}}
                     className="font-minecraft-body text-xl md:text-2xl text-foreground/80 mb-8 max-w-4xl mx-auto"
                 >
                     A modern web-based management panel for Minecraft servers with modloader support,
@@ -53,9 +49,8 @@ export default function HeroSection()
 
                 <motion.div
                     initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
+                    animate={{opacity: 1, y: 0}}
                     transition={{duration: 0.6, delay: 0.5}}
-                    viewport={{once: true, amount: 0.3}}
                     className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                 >
                     <Button
@@ -82,9 +77,8 @@ export default function HeroSection()
 
                 <motion.div
                     initial={{opacity: 0, y: 30}}
-                    whileInView={{opacity: 1, y: 0}}
+                    animate={{opacity: 1, y: 0}}
                     transition={{duration: 0.6, delay: 0.6}}
-                    viewport={{once: true, amount: 0.3}}
                     className="flex justify-center items-center gap-6 mt-8 text-sm text-foreground/60"
                 >
                     <div className="flex items-center gap-2">
